@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const instance = axios.create({
-    baseURL: 'http://api.weatherapi.com/v1',
+    baseURL: 'https://api.weatherapi.com/v1',
     params: {
       key: '96135730fd9b4e3ca91193844242201',
     },
