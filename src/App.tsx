@@ -1,34 +1,65 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import CurrentWheather from './components/CurrentWeather/CurrentWheather'
+import DayForecast from './components/DayForecast/DayForecast'
+import AirConditions from './components/AirConditions/AirConditions'
+import WeekForecast from './components/WeekForecast/WeekForecast'
+import Search from './components/Search/Search'
+import { useState, useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from './hooks/hooks'
+import { getCurrentWeatherAsync } from './features/weatherSlice/currentWeatherSlice'
+import Loading from './components/Loading/Loading'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [location, setLocation] = useState({ city: '', country: '' });
+  const isLoaded = useAppSelector((state) => state.currentWeahter.isLoaded)
+  const isDay = useAppSelector((state) => state.currentWeahter.currentLocationWeather.is_day)
+  console.log(isDay)
+  const dispatch = useAppDispatch()
+
+
+  useEffect(() => {
+    fetch('https://ipapi.co/json/')
+      .then((response) => response.json())
+      .then((data) => {
+        const { country, city } = data;
+        setLocation({ country: country, city: city });
+      })
+      .catch((error) => {
+        console.error('Error fetching location data:', error);
+      });
+
+  }, []);
+
+  useEffect(() => {
+    if (location.city !== '') {
+      dispatch(getCurrentWeatherAsync(location.city))
+    }
+  }, [location])
+
+
+
+
+
+
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='h-screen w-full'>
+      {!isLoaded
+        ? <Loading/>
+        :
+        <div className='grid grid-cols-12 p-5 h-screen'>
+          <div className='grid col-span-8 pr-5' >
+            <Search />
+            <CurrentWheather />
+            <DayForecast />
+            <AirConditions />
+          </div>
+          <div className="grid col-start-9 col-span-4">
+            <WeekForecast />
+          </div>
+        </div>
+      }
+    </div>
   )
 }
 
