@@ -27,7 +27,7 @@ const WeekForecast = () => {
 
     return (
         <div className="w-full h-full relative">
-            <div className="p-5 bg-light-grey absolute w-full bottom-0 rounded-md gird grid-cols-7">
+            <div className="week-forecast p-5 bg-light-grey absolute w-full bottom-0 rounded-md gird grid-cols-7">
                 {day.map((i, index) => {
                     
                     return <div key={index} className={`grid grid-cols-2 gap-2 pt-5 pb-5 ${
@@ -38,7 +38,7 @@ const WeekForecast = () => {
                             <div><img className="w-16 h-16" src={getConditionImg(i.day.condition.code, 1)} alt="" /></div>
                         </div>
                         <div className="flex justify-between text-center items-center">
-                            <div className="font-bold">{i.day.condition.text}</div>
+                            <div className="week-condition-text font-bold">{i.day.condition.text}</div>
                             <div><span className="font-bold">{Math.ceil(i.day.maxtemp_c)}</span> <span className="text-text-grey">/</span> <span className="text-text-grey">{Math.ceil(i.day.mintemp_c)}</span></div>
                         </div>
                     </div>

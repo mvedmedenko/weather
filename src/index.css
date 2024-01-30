@@ -36,3 +36,78 @@ body {
     border: 5px solid black;
 }
 
+
+@media (max-width: 950px) {
+    .app {
+        height: 100svh;
+    }
+
+    .inner {
+        display: block;
+        height: 100%;
+    }
+
+    .current-box {
+        padding-right: 0;
+    }
+
+    .current-inner {
+        margin-top: 50px;
+    }
+
+    .current-name-box {
+        padding: 0;
+    }
+
+    .current-img {
+        padding: 0;
+    }
+
+    .current-img img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .day-box {
+        width: 100%;
+        height: auto;
+        overflow-x: scroll;
+        margin-top: 70px;
+    }
+
+    .day-wrapper {
+        width: 100%;
+        overflow-x: scroll;
+    }
+
+    .day-inner {
+        min-width: 700px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(2, 1fr));
+        column-gap: 30px;
+    }
+
+    .day-item {
+        border-right: 0;
+    }
+
+    .week-forecast {
+        position: static;
+        margin-top: 40px;
+        margin-bottom: 20px;
+
+    }
+
+
+    .condition-box {
+        margin-top: 20px;
+        height: 100%;
+    }
+
+    .week-condition-text {
+        text-align: left;
+    }
+
+
+
+}

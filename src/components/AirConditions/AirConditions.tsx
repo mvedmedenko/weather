@@ -9,9 +9,9 @@ const AirConditions = () => {
     const currentLocationWeather = useAppSelector((state) => state.currentWeahter.currentLocationWeather)
 
     return (
-        <div className="w-full h-auto mt-5 bg-light-grey rounded-md p-5">
+        <div className="condition-box w-full h-auto mt-5 bg-light-grey rounded-md p-5">
             <div className="!last-child:border-r-2 border-color text-text-grey font-bold">AIR CONDITIONS</div>
-            <div className="grid grid-cols-2 grid-rows-2 items-center h-full">
+            <div className="grid grid-cols-2 grid-rows-2 items-center h-full pb-2">
                 <div className="flex">
                     <div className="mr-2"><img className="w-5 h-5" src={temperature} alt="ICON" /></div>
                     <div>

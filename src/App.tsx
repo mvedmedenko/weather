@@ -43,18 +43,18 @@ function App() {
 
 
   return (
-    <div className='h-screen w-full'>
+    <div className='app h-screen w-full'>
       {!isLoaded
         ? <Loading/>
         :
-        <div className='grid grid-cols-12 p-5 h-screen'>
-          <div className='grid col-span-8 pr-5' >
+        <div className='inner grid grid-cols-12 p-5 h-screen'>
+          <div className='current-box grid col-span-8 pr-5' >
             <Search />
             <CurrentWheather />
             <DayForecast />
             <AirConditions />
           </div>
-          <div className="grid col-start-9 col-span-4">
+          <div className="week-box grid col-start-9 col-span-4">
             <WeekForecast />
           </div>
         </div>

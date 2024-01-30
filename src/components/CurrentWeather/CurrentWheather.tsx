@@ -13,8 +13,8 @@ const CurrentWheather = () => {
 
 
     return (
-        <div className="relative w-full h-full flex justify-between">
-            <div className=" pl-8">
+        <div className="current-inner relative w-full h-full flex justify-between">
+            <div className="current-name-box pl-8">
                 <div>
                     <div className="text-4xl font-medium">{currentLocation.name}</div>
                 </div>
@@ -24,7 +24,7 @@ const CurrentWheather = () => {
                     </div>
                 </div>
             </div>
-            <div className="pr-8">
+            <div className="current-img pr-8">
                 <img className="w-60 h-60" src={getConditionImg(currentLocationWeather.condition.code, currentLocationWeather.is_day)} alt="ICON" />
             </div>
         </div>
