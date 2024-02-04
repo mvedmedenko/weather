@@ -1,9 +1,13 @@
-import { useAppSelector } from "../../hooks/hooks";
 import useConditionImage from "../../hooks/useConditionImage";
+import { DailyForecast } from "../../types/types";
 
-const WeekForecast = () => {
+type TypeProps = {
+    forecastDay: DailyForecast[]
+}
 
-    const day = useAppSelector((state) => state.currentWeahter.forecast)
+const WeekForecast = (props: TypeProps) => {
+
+
     
     const getDayOfWeek = (dateString: string) => {
         const getFormattedDate = (date: Date) => {
@@ -26,12 +30,12 @@ const WeekForecast = () => {
       }
 
     return (
-        <div className="w-full h-full relative">
-            <div className="week-forecast p-5 bg-light-grey absolute w-full bottom-0 rounded-md gird grid-cols-7">
-                {day.map((i, index) => {
+        <div className="w-full relative">
+            <div className="week-forecast pl-5 pr-5 bg-light-grey w-full rounded-md gird grid-flow-col">
+                {props.forecastDay.map((i, index) => {
                     
                     return <div key={index} className={`grid grid-cols-2 gap-2 pt-5 pb-5 ${
-                        index === day.length - 1 ? "" : "border-b-2 border-color"
+                        index === props.forecastDay.length - 1 ? "" : "border-b-2 border-color"
                       }`}>
                         <div className="flex justify-between text-center items-center">
                             <div className="font-medium text-text-grey">{getDayOfWeek(i.date)}</div>

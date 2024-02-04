@@ -1,26 +1,29 @@
-import { useAppSelector } from "../../hooks/hooks";
-import useConditionImage from "../../hooks/useConditionImage";
+import useConditionImage from "../../hooks/useConditionImage"
+import { DailyForecast } from "../../types/types"
 
-const DayForecast = () => {
+type TypeProps = {
+    forecastHour: DailyForecast[]
+    infoFrom: string
+}
 
-    const days = useAppSelector((state) => state.currentWeahter.forecast)
-
+const DayForecast = (props: TypeProps) => {
 
     const getTimeWeather = () => {
         const time = new Date();
         const currentHour = time.getHours();
         const output = [];
 
-        for (let i = currentHour; i < currentHour + 6; i++) {
+
+        for (let i = currentHour; i < currentHour + (props.infoFrom === "foundCity" ? 3 : 6); i++) {
             if (i <= 23) {
-                const currentTime = days[0].hour[i].time;
+                const currentTime = props.forecastHour[0].hour[i].time;
                 const formattedTime = new Date(currentTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-                output.push({ ...days[0].hour[i], time: currentHour === new Date(currentTime).getHours() ? "Now" : formattedTime });
+                output.push({ ...props.forecastHour[0].hour[i], time: currentHour === new Date(currentTime).getHours() ? "Now" : formattedTime });
             } else {
-                const currentTime = days[1].hour[i - 24].time;
+                const currentTime = props.forecastHour[0].hour[i - 24].time;
                 const formattedTime = new Date(currentTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                const nextDayHour = { ...days[1].hour[i - 24], time: currentHour === new Date(currentTime).getHours() ? "Now" : formattedTime };
+                const nextDayHour = { ...props.forecastHour[0].hour[i - 24], time: currentHour === new Date(currentTime).getHours() ? "Now" : formattedTime };
                 output.push(nextDayHour);
             }
         }
@@ -37,7 +40,7 @@ const DayForecast = () => {
         <div className="day-box w-full h-auto mt-5 bg-light-grey rounded-md p-5">
             <div className="border-color text-text-grey font-bold">TODAY`S FORECAST</div>
             <div className="day-wrapper">
-                <div className="day-inner grid grid-cols-6 items-center">
+                <div className="day-inner grid grid-flow-col items-center">
                     {getTimeWeather().map((i, index) => {
                         return <div key={index} className={`day-item grid grid-rows-3 gap-auto place-items-center text-center mt-5 ${index === getTimeWeather().length - 1 ? "" : "border-r-2 border-color"
                             }`}>

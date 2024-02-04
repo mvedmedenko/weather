@@ -14,6 +14,11 @@ import possibleNightSleet from "../assets/images/night/possibleNightSleet.png"
 import possibleThundery from "../assets/images/day/possibleThundery.png"
 import possibleNightThundery from "../assets/images/night/possbileNightThundery.png"
 import snow from "../assets/images/day/snow.png"
+import lightDrizzle from "../assets/images/day/lightDrizzle.png"
+import frizzingDrizzle from "../assets/images/day/freezingDrizzle.png"
+import heavyRain from "../assets/images/day/heavyRain.png"
+import lightFreezingRain from "../assets/images/day/lightFreezingRain.png"
+import snowThunder from "../assets/images/day/snowThunder.png"
 
 
 
@@ -90,77 +95,113 @@ const useConditionImage = (code: number, isDay: number) => {
       case 1117:
         return snow;
       case 1135:
-        return sunny;
+        if(isDay === 1) {
+          return mist;
+      } else {
+          return mistNight
+      }
       case 1147:
-        return sunny;
+        return snow;
       case 1150:
-        return sunny;
+        if(isDay === 1) {
+          return possibleRain;
+      } else {
+          return possibleNightRain
+      }
       case 1153:
-        return sunny;
+        if(isDay === 1) {
+          return lightDrizzle;
+      } else {
+          return possibleNightRain
+      }
       case 1168:
-        return sunny;
+        return frizzingDrizzle;
       case 1171:
-        return sunny;
+        return frizzingDrizzle;
       case 1180:
-        return sunny;
+        if(isDay === 1) {
+          return possibleRain;
+      } else {
+          return possibleNightRain
+      }
       case 1183:
-        return sunny;
+        return lightDrizzle;
       case 1186:
-        return sunny;
+        return lightDrizzle;
       case 1189:
-        return sunny;
+        return lightDrizzle;
       case 1192:
-        return sunny;
+        return heavyRain;
       case 1195:
-        return sunny;
+        return heavyRain;
       case 1198:
-        return sunny;
+        return lightFreezingRain;
       case 1201:
-        return sunny;
+        return possibleSleet;
       case 1204:
-        return sunny;
+        return possibleSleet;
       case 1207:
-        return sunny;
+        return possibleSleet;
       case 1210:
-        return sunny;
+        return frizzingDrizzle;
       case 1213:
-        return sunny;
+        return snow;
       case 1216:
-        return sunny;
+        return snow;
       case 1219:
-        return sunny;
+        return snow;
       case 1222:
-        return sunny;
+        return snow;
       case 1225:
-        return sunny;
+        return snow;
       case 1237:
-        return sunny;
+        return possibleSleet;
       case 1240:
-        return sunny;
+        if(isDay === 1) {
+          return possibleRain;
+      } else {
+          return possibleNightRain
+      }
       case 1243:
-        return sunny;
+        if(isDay === 1) {
+          return possibleRain;
+      } else {
+          return possibleNightRain
+      }
       case 1246:
-        return sunny;
+        if(isDay === 1) {
+          return possibleRain;
+      } else {
+          return possibleNightRain
+      }
       case 1249:
-        return sunny;
+        if(isDay === 1) {
+          return possibleRain;
+      } else {
+          return possibleNightRain
+      }
       case 1252:
-        return sunny;
+        if(isDay === 1) {
+          return possibleRain;
+      } else {
+          return possibleNightRain
+      }
       case 1255:
-        return sunny;
+        return snow;
       case 1258:
-        return sunny;
+        return snow;
       case 1261:
-        return sunny;
+        return lightDrizzle;
       case 1264:
-        return sunny;
+        return lightDrizzle;
       case 1273:
-        return sunny;
+        return heavyRain;
       case 1276:
-        return sunny;
+        return lightFreezingRain;
       case 1279:
-        return sunny;
+        return snowThunder;
       case 1282:
-        return sunny;
+        return snowThunder;
   
       default:
         return sunny;

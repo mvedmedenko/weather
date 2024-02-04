@@ -6,7 +6,8 @@ export default {
       colors: {
         "light-grey": '#EBECF0',
         "text-grey": "#A0A4AC",
-        "border-color": "#E0E2E6"
+        "border-color": "#E0E2E6",
+        "bg-color": "#F6F6F6",
       }
     },
   },

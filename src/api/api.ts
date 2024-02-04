@@ -19,13 +19,30 @@ const instance = axios.create({
         return axios.get("https://ipapi.co/json/")
     },
 
-    getCurrentWeather(city: string) {
+    getCurrentWeather(city: string, country: string) {
         return instance.get("forecast.json", {
             params: {
-                q: city,
+                q: `${city},${country}`,
                 days: "7" 
             }
         })
+    },
+
+    getFoundCityWeather(city: string, country: string) {
+        return instance.get("forecast.json", {
+            params: {
+                q: `${city},${country}`,
+                days: "3" 
+            }
+        })
+    },
+
+    getFoundCities(request: string) {
+      return instance.get("search.json", {
+        params: {
+            q: request,
+        }
+    })
     }
   }
 

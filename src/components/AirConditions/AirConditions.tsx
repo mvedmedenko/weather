@@ -6,7 +6,7 @@ import { useAppSelector } from "../../hooks/hooks"
 
 const AirConditions = () => {
 
-    const currentLocationWeather = useAppSelector((state) => state.currentWeahter.currentLocationWeather)
+    const currentLocationWeather = useAppSelector((state) => state.currentWeahter.currentLocationWeather.current)
 
     return (
         <div className="condition-box w-full h-auto mt-5 bg-light-grey rounded-md p-5">
