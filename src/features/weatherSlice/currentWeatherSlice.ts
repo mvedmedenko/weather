@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import api from '../../api/api';
-import { CurrentLocationWeather, WeatherRequestParams, DataForecast, FoundCities } from '../../types/types';
+import { WeatherRequestParams, DataForecast, FoundCities } from '../../types/types';
 
 
 type Weather = {
