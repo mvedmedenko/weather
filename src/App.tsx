@@ -70,7 +70,7 @@ function App() {
             </div>
             :
             <div className="week-box relative grid col-start-9 col-span-4">
-              <div className='week-inner absolute bottom-0 w-full'>
+              <div className='week-inner w-full'>
                 <WeekForecast forecastDay={currentForecastDays} />
               </div>
             </div>
